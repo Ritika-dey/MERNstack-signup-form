@@ -5,14 +5,15 @@ const signupTemplate = require('../models/models');
 
 router.post('/signup' , (req , res) =>{
      const data = new signupTemplate({
-         username : request.body.username , 
-         email : request.body.email ,
-         password : request.body.password
+         username : req.body.username , 
+         email : req.body.email ,
+         password : req.body.password
      })
      data.save()
-     .then(result => response.json(result))
+     .then(result => {
+         res.json(result) })
      .catch(err => console.log(err))
 })
 
-
+// router.get('/signin' , )
 module.exports = router
